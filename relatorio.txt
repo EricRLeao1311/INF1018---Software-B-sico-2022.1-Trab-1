@@ -1,0 +1,74 @@
+/* Eric Leao 2110694 3WB */
+/* Pedro Machado Peçanha 2110535 3WB */
+
+
+Testes:
+
+Signed Ints (estrutura - qtdBytes):
+
+Negativos:
+Último byte FF - 4 (FF502D7F) e 3 bytes (FF802D7F)
+Últimos dois bytes FF - 3 (FFFF2D7F) e 2 bytes (FFFF8F7F)
+Últimos três bytes FF - 2 (FFFFFF7F) e 1 byte (FFFFFFFF)
+
+//TODO: colocar positivos
+
+Positivos
+Último byte 00 - 4 (0080FFFF) ou 3 bytes (0070eaed)
+Último dois bytes 00 - 3 (0000FFFF) ou 2 bytes (00002eda)
+Último três bytes 00 - 2 (000000ca) ou 1 byte (0000000a)
+Todos bytes 00 - não grava
+
+Unsigned Ints: 4(FFFFFFFF), 3(0080FFFF), 2(00005421), 1 byte (000000ea) e 0 byte (00000000)
+
+Strings: Teste da string com tamanho máximo permitido, tamanho intermediário e minimo.
+
+Estrutura de Testes: struct s {
+  int i;
+  int i2;
+  int i3;
+  int i4;
+  char c1[63];
+  int i5;
+  unsigned int u;
+  unsigned int u2;
+  char c2[2];
+};
+
+struct s exemplo[3] = {{0xFF502D7F, 0xFF802D7F, 0xFFFF2D7F, 0x0070eaed,  "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo000", 0x0080FFFF ,0xFFFFFFFF, 0x0080FFFF,"o"}, {0xFFFF8F7F, 0xFFFFFF7F, 0xFFFFFFFF, 0x0000FFFF, "mine", 0x00002eda, 0x00005421, 0x000000ea, "oi"}, {0x7FFFFFFF, 0x80000000, 0x00000000, 0x000000ca, "tia",0x0000000a, 0x00000000, 0xFFFFFFFF, "k"}};
+
+com descritor "iiiis63iuus02".
+
+O teste imprime todos os valores descritos acima de forma correta. Resultado do teste:
+
+Estruturas: 3
+
+(int) -11522689 (ff502d7f)
+(int) -8376961 (ff802d7f)
+(int) -53889 (ffff2d7f)
+(int) 7400173 (0070eaed)
+(str) oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo000
+(int) 8454143 (0080ffff)
+(uns) 4294967295 (ffffffff)
+(uns) 8454143 (0080ffff)
+(str) o
+
+(int) -28801 (ffff8f7f)
+(int) -129 (ffffff7f)
+(int) -1 (ffffffff)
+(int) 65535 (0000ffff)
+(str) mine
+(int) 11994 (00002eda)
+(uns) 21537 (00005421)
+(uns) 234 (000000ea)
+(str) oi
+
+(int) 2147483647 (7fffffff)
+(int) -2147483648 (80000000)
+(int) 0 (00000000)
+(int) 202 (000000ca)
+(str) tia
+(int) 10 (0000000a)
+(uns) 0 (00000000)
+(uns) 4294967295 (ffffffff)
+(str) k
